@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ManualDistribution } from '@/lib/distributions';
-import { Link } from 'react-router-dom';
+import AppShell from '@/components/AppShell';
 import { Slider } from "@/components/ui/slider";
 import { useToast } from "@/components/ui/use-toast";
 
@@ -238,18 +238,15 @@ const ManualDrawing: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <div className="flex justify-between items-center mb-4">
-        <h1 className="text-2xl font-bold">Manual Distribution Drawing</h1>
-        <Link to="/">
-          <Button variant="outline">Return to Simulator</Button>
-        </Link>
-      </div>
+    <AppShell
+      title="Draw a Distribution"
+      subtitle="Sketch any probability density with the mouse, then generate random samples from it."
+    >
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <Card className="lg:col-span-2">
           <CardHeader>
-            <CardTitle>Draw Your Distribution</CardTitle>
+            <CardTitle className="text-lg">Draw your distribution</CardTitle>
           </CardHeader>
           <CardContent>
             <div 
@@ -279,7 +276,7 @@ const ManualDrawing: React.FC = () => {
 
         <Card>
           <CardHeader>
-            <CardTitle>Settings</CardTitle>
+            <CardTitle className="text-lg">Settings</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
@@ -335,7 +332,7 @@ const ManualDrawing: React.FC = () => {
           </CardContent>
         </Card>
       </div>
-    </div>
+    </AppShell>
   );
 };
 
